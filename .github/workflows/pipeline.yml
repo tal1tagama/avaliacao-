@@ -1,0 +1,45 @@
+name: Pipeline CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  validar_codigo:
+    name: Validação do Código
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Verificar arquivos do projeto
+        run: |
+          echo "Iniciando validação do projeto..."
+          ls
+          echo "Arquivos verificados com sucesso!"
+
+  build_projeto:
+    name: Simulação de Build
+    runs-on: ubuntu-latest
+    needs: validar_codigo
+
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Criar pasta de build
+        run: |
+          echo "Criando pasta dist..."
+          mkdir dist
+
+      - name: Copiar arquivos do site
+        run: |
+          cp *.html dist/
+          cp *.css dist/
+          echo "Build realizado com sucesso!"
+
+      - name: Mostrar mensagem secreta
+        run: echo "Mensagem secreta: ${{ secrets.MENSAGEM_SECRETA }}"

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pipeline CI/CD</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1>Projeto CI/CD</h1>
+    <p>Automação de Pipeline com GitHub Actions</p>
+  </header>
+
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#tecnologias">Tecnologias</a>
+  </nav>
+
+  <main>
+
+    <section id="sobre">
+      <h2>Sobre o Projeto</h2>
+      <p>
+        Este projeto demonstra a utilização de uma esteira de automação CI/CD
+        utilizando GitHub Actions. O objetivo é validar o código automaticamente
+        e simular um processo de build para garantir maior confiabilidade no software.
+      </p>
+    </section>
+
+    <section id="pipeline">
+      <h2>Como funciona a Pipeline</h2>
+
+      <div class="cards">
+
+        <div class="card">
+          <h3>1️⃣ Validação</h3>
+          <p>
+            O primeiro job verifica os arquivos do projeto e garante que o código
+            esteja pronto para continuar no processo.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>2️⃣ Build</h3>
+          <p>
+            O segundo job executa apenas se o primeiro passar e simula o build
+            do projeto criando a pasta <strong>dist</strong>.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>3️⃣ Secret</h3>
+          <p>
+            O pipeline utiliza um Secret do GitHub para demonstrar leitura segura
+            de informações durante a execução.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="tecnologias">
+      <h2>Tecnologias Utilizadas</h2>
+
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>Git</li>
+        <li>GitHub</li>
+        <li>GitHub Actions</li>
+      </ul>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Projeto acadêmico - Automação CI/CD</p>
+  </footer>
+
+</body>
+</html>
