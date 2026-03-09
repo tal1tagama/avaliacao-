@@ -7,26 +7,24 @@ on:
 
 jobs:
   validar_codigo:
-    name: Validar Código
     runs-on: ubuntu-latest
 
     steps:
-      - name: Baixar repositório
+      - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Verificar arquivos
+      - name: Validar arquivos
         run: |
-          echo "Validando arquivos do projeto..."
+          echo "Validando projeto..."
           ls
-          echo "Validação concluída!"
+          echo "Validação concluída"
 
   build_projeto:
-    name: Simular Build
     runs-on: ubuntu-latest
     needs: validar_codigo
 
     steps:
-      - name: Baixar repositório
+      - name: Checkout do código
         uses: actions/checkout@v4
 
       - name: Criar pasta dist
@@ -34,8 +32,8 @@ jobs:
 
       - name: Copiar arquivos
         run: |
-          cp *.html dist/
-          cp *.css dist/
+          cp *.html dist/ || true
+          cp *.css dist/ || true
 
       - name: Mostrar secret
-        run: echo "Mensagem secreta: ${{ secrets.MENSAGEM_SECRETA }}"
+        run: "echo Mensagem secreta: ${{ secrets.MENSAGEM_SECRETA }}"
